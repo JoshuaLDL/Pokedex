@@ -1,5 +1,10 @@
 body{
-    background-color: black;
+    /* background-color: black; */
+    background-image: url(assets/Pokemon-wallpaper-2.webp);
+    background-image: url(assets/pokemon-wallpaper-3.webp);
+    /* background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; */
 }
 
 h1{
@@ -12,6 +17,8 @@ h2{
 }
 
 h3{
+    text-transform: capitalize;
+    margin: 0px;
 
 }
 

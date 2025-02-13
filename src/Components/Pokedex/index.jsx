@@ -2,6 +2,7 @@ import { useState } from "react"
 import "./Pokedex.css"
 import { useEffect } from "react"
 import SingleEntry from "../SingleEntry"
+import PokemonCard from "../SingleEntry"
 
 
 export default function Pokemon () {
@@ -47,22 +48,24 @@ export default function Pokemon () {
 
 
 return (
-   
-   <div className="pokemonCard">
-        {Pokemon.map((pokeInfo) => {
-            return <SingleEntry 
-                key={pokeInfo.id}
-                name={pokeInfo.name}
-                sprites={pokeInfo.sprites}
-                height={pokeInfo.height}
-                weight={pokeInfo.weight}
-                abilities={pokeInfo.abilities}
-                types={pokeInfo.types}
-                moves={pokeInfo.moves}
-                stats={pokeInfo.stats}
-                />
+   <div className="pokemonDeck">
+    <div className="pokemonCard">
             
-       } )}
+            {Pokemon.map((pokeInfo) => {
+                return <PokemonCard 
+                    key={pokeInfo.id}
+                    name={pokeInfo.name}
+                    sprites={pokeInfo.sprites}
+                    height={pokeInfo.height}
+                    weight={pokeInfo.weight}
+                    abilities={pokeInfo.abilities}
+                    types={pokeInfo.types}
+                    moves={pokeInfo.moves}
+                    stats={pokeInfo.stats}
+                    />
+                
+        } )}
+        </div>
     </div>
 
     )
