@@ -1,0 +1,17 @@
+
+.Button-One {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 15px;
+    margin: 10px 0px;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #111111;
+    background-color: none;
+    border: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: black;
+    cursor: pointer;
+}

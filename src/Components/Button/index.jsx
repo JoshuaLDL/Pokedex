@@ -1,7 +1,10 @@
+import "./Button.css"
+
+
 
 export default function Button({link, text}) {
 
     return(
-        <button a href={link}>{text}</button>
+        <button className="Button-One" a href={link}>{text}</button>
     )
 }

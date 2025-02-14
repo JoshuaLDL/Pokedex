@@ -1,0 +1,13 @@
+.Header{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.Nav-Bar{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+
+}
