@@ -2,11 +2,10 @@
 .pokemonDeck{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    flex-wrap: wrap;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
-    align-content: center;
-    width:100%;
+    /* align-content: center; */
+    /* width:100%; */
 }
 
 .pokemonCard{
@@ -14,9 +13,26 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-column: 2;
     gap: 50px;
-    padding: 50px;
     color: black;
 }
 
+@media screen and (max-width: 850px) {
+.pokemonCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 2;
+    gap: 50px;
+    color: black;
+}}
+
+@media screen and (max-width: 500px) {
+    .pokemonCard{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column: 2;
+        gap: 50px;
+        color: black;
+    }}
+    
 
 

@@ -8,14 +8,12 @@ export default function PokemonCard({ name, sprites={}, id, height, weight, abil
     return (
         <div className="card-container" onClick={() => setIsFlipped(!isFlipped)}>
             <div className={`card ${isFlipped ? "flipped" : ""}`}>
-                {/* Front of the Card (Image) */}
                 <div className="card-front">
                     <img src={sprites.front_default} alt={name} />
                     <h3>{name}</h3>
                     <p>{types.map(a => a.type.name).join(", ")}</p>
                 </div>
 
-                {/* Back of the Card (Info) */}
                 <div className="card-back">
                     <p><strong>Height:</strong> {height}</p>
                     <p><strong>Weight:</strong> {weight}</p>
@@ -26,5 +24,5 @@ export default function PokemonCard({ name, sprites={}, id, height, weight, abil
                 </div>
             </div>
         </div>
-    );
+    )
 }

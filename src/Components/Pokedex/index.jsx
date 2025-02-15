@@ -20,29 +20,29 @@ export default function Pokemon ({name}) {
             .then((res) => res.json())
             .then((data) => {
                 if (!data.results) {
-                    setNoPokemon(true);
-                    setPokemon([]); 
-                    return;
+                    setNoPokemon(true)
+                    setPokemon([])
+                    return
                 }
 
                 Promise.all(data.results.map((poke) => fetch(poke.url).then((res) => res.json())))
                     .then((pokemonDetails) => {
-                        let filteredPokemon = pokemonDetails;
+                        let filteredPokemon = pokemonDetails
     
-                        // 🟢 Filter by Type if `typeId` is selected
+                        // Filter by Type if `typeId` is selected
                         if (typeId !== 0) {
                             filteredPokemon = filteredPokemon.filter((p) => 
                                 p.types.some((t) => t.type.url.includes(`/type/${typeId}/`))
-                            );
-                        }
-    
+                        )}
+
                         setPokemon(filteredPokemon)
                         setNoPokemon(filteredPokemon.length === 0)
                     })
             })
+
             .catch(() => {
-                setNoPokemon(true);
-                setPokemon([]);
+                setNoPokemon(true)
+                setPokemon([])
             })
     }
     
@@ -59,7 +59,7 @@ export default function Pokemon ({name}) {
             fetch(`https://pokeapi.co/api/v2/type`)
             .then((res) => res.json())
             .then((data) => {
-                setType(data.results); // Fix: Ensure `results` is used
+                setType(data.results)
             })
 }
   
@@ -86,7 +86,7 @@ export default function Pokemon ({name}) {
                     </select>
                 </div>
 
-                <div>
+                {/* <div>
                     <label htmlFor="search">
                         Search Pokemon:
                     </label>
@@ -97,7 +97,7 @@ export default function Pokemon ({name}) {
                         onChange={(e) => setSearch(e.target.value)}
                         placeholder="Search Pokemon..."
                         />
-                </div>
+                </div> */}
 
         
             </div>
