@@ -70,13 +70,13 @@ export default function Pokemon ({name}) {
     useEffect(() => getTypes(), [])
 
     return (
-        <>
-            <div>
+        <div className="pokedex">
+            <>
 
-                <div>
-                    <label htmlFor="type">Filter: </label>
+                <div className="filterBar">
+                    <label htmlFor="type"></label>
                     
-                    <select onChange={(e) => setTypeId(parseInt(e.target.value))}>
+                    <select className="filter" onChange={(e) => setTypeId(parseInt(e.target.value))}>
                         <option value={0}>Any</option>
                         {type.map((t) => (
                             <option key={t.name} value={t.url.split("/").slice(-2, -1)[0]}>
@@ -100,7 +100,7 @@ export default function Pokemon ({name}) {
                 </div> */}
 
         
-            </div>
+            </>
 
             <div className="pokemonDeck">
                 <div className="pokemonCard">
@@ -122,6 +122,6 @@ export default function Pokemon ({name}) {
             </div>
 
             {noPokemon && <p>No Pokemon Found!</p>}
-        </>
+        </div>
     )
 }

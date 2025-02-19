@@ -8,7 +8,8 @@ export default function App(){
   return(
     <>
     <Nav />
-    <PokedexHeader title="Kanto" text="lorem" image="src/assets/Image1.png"/>
+    
+    <PokedexHeader title="Kanto" text="lorem" image="#"/>
     <Pokedex />
     </>
 

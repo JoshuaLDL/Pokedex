@@ -1,4 +1,11 @@
 
+.pokedex{
+    display: grid;
+    grid-template-columns: 1fr;
+
+
+}
+
 .pokemonDeck{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -12,7 +19,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column: 2;
-    gap: 50px;
+    gap: 30px;
     color: black;
 }
 
@@ -34,5 +41,22 @@
         color: black;
     }}
     
+.filterBar{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 10px;
+    
 
+}
 
+.filter{
+    box-sizing: border-box;
+    border-style: solid;
+    background-color: none;
+    border-color: white;
+    border-radius: 8px;
+    border-width: 5px;
+
+}

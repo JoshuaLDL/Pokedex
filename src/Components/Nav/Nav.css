@@ -1,21 +1,19 @@
 .Header{
-    display:flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 20px;
     background-color: rgba(255, 255, 255, 0.33);
-    position: fixed;
+    position:relative;
     backdrop-filter: blur(5px);
-    padding:40px 0px;
+    padding:40px;
     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.15);
-    width: 100%;
     z-index: 1000;
+    margin: 0px;
 }
 
 .Nav-Bar{
     display: flex;
     flex-direction: row;
     gap: 5px;
-    padding: 0px 20px;
 
 }
