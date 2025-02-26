@@ -5,7 +5,9 @@ export default function ({text, link}) {
 
     return (
         <div className="Header">
-            <img src="#" alt="Pokeball sprite" />
+            <a href="/" >
+            <img src="src/assets/pokeball.png" alt="Pokeball sprite" width="50" height="50" />
+            </a>
             <div className="Nav-Bar">
                 <HeaderLink text="Example" link="/"/>
                 <HeaderLink text="Example" link="/"/>
