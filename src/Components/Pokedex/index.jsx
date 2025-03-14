@@ -131,6 +131,7 @@ import "./Pokedex.css";
 import PokemonCard from "../SingleEntry";
 
 export default function Pokemon() {
+
     const [pokemon, setPokemon] = useState([]);
     const [search, setSearch] = useState("");
     const [type, setType] = useState([]);
@@ -140,13 +141,13 @@ export default function Pokemon() {
         JSON.parse(localStorage.getItem("favorites")) || []
     );
 
-    // Fetch Pokémon Data
     function GetData(typeId = 0) {
         let url = `https://pokeapi.co/api/v2/pokemon?limit=100`;
 
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
+                // console.log(data)
                 if (!data.results) {
                     setNoPokemon(true);
                     setPokemon([]);
@@ -157,7 +158,6 @@ export default function Pokemon() {
                     .then((pokemonDetails) => {
                         let filteredPokemon = pokemonDetails;
 
-                        // Filter by Type if `typeId` is selected
                         if (typeId !== 0) {
                             filteredPokemon = filteredPokemon.filter((p) =>
                                 p.types.some((t) => t.type.url.includes(`/type/${typeId}/`))
@@ -174,7 +174,6 @@ export default function Pokemon() {
             });
     }
 
-    // Fetch Pokémon types
     function getTypes() {
         fetch(`https://pokeapi.co/api/v2/type`)
             .then((res) => res.json())
@@ -212,7 +211,8 @@ export default function Pokemon() {
     return (
         <div className="pokedex">
             <div className="filterBar">
-                <label htmlFor="type">Filter by Type:</label>
+                <div className="filterContent">
+                <label htmlFor="type">Filter by Type:  </label>
                 <select className="filter" onChange={(e) => setTypeId(parseInt(e.target.value))}>
                     <option value={0}>Any</option>
                     {type.map((t) => (
@@ -221,6 +221,7 @@ export default function Pokemon() {
                         </option>
                     ))}
                 </select>
+                </div>
             </div>
 
             <div className="pokemonDeck">

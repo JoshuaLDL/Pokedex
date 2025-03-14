@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./SingleEntry.css"
 import Button from "../Button";
+import FullEntry from "../FullEntry";
 
 // export default function PokemonCard({ name, sprites={}, id, height, weight, abilities=[], types=[], moves=[], stats=[], text, link }) {
 //     const [isFlipped, setIsFlipped] = useState(false);
@@ -46,10 +47,11 @@ export default function PokemonCard({
                 
                 {/* Front Side */}
                 <div className="card-front">
-                    <img src={sprites.front_default} alt={name} />
-                    <h3>{name}</h3>
-                    <p>{types.map(a => a.type.name).join(", ")}</p>
-                    
+                    <Link to={`/pokemon/${id}`}>
+                        <img src={sprites.front_default} alt={name} />
+                        <p>#{id}</p>
+                        <h3>{name}</h3>
+                    </Link>
                     <i
                        className="fa-solid fa-heart" 
                             style={{ 
@@ -66,9 +68,11 @@ export default function PokemonCard({
 
                 {/* Back Side */}
                 <div className="card-back">
+                    <p><strong>Type(s):</strong> {types.map(a => a.type.name).join(", ")}</p>
+                    <p><strong>Abilities:</strong> {abilities.map(a => a.ability.name).join(", ")}</p>
                     <p><strong>Height:</strong> {height}</p>
                     <p><strong>Weight:</strong> {weight}</p>
-                    <p><strong>Abilities:</strong> {abilities.map(a => a.ability.name).join(", ")}</p>
+                    
                 </div>
             </div>
         </div>
