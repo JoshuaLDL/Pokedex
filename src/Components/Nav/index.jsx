@@ -1,4 +1,4 @@
-import HeaderLink from "../HeaderLink";
+import { Link } from "react-router-dom";
 import "./Nav.css"
 
 export default function ({text, link}) {
@@ -9,8 +9,7 @@ export default function ({text, link}) {
             <img src="src/assets/pokeball.png" alt="Pokeball sprite" width="50" height="50" />
             </a>
             <div className="Nav-Bar">
-                <HeaderLink text="Pokedexes" link="/pokedexes"/>
-                <HeaderLink text="Example" link="/"/>
+                <Link to="/pokedexes">Pokedexes</Link>
             </div>
         </div>
     )

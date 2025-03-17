@@ -3,13 +3,12 @@ import PokedexHeader from "../Components/PokedexHeader";
 import Pokedexes from "./Pokedexes";
 
 
+
 export default function HomePage(){
 
   return(
     <>
-    <Nav />
     <Pokedexes/>
- 
     </>
 
   )

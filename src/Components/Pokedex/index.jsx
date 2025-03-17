@@ -183,19 +183,20 @@ export default function Pokemon() {
                 Promise.all(
                     data.pokemon_entries.map((entry) =>
                         fetch(`https://pokeapi.co/api/v2/pokemon/${entry.pokemon_species.name}`)
-                            .then((res) => res.json())
-                            .catch(() => {
-                                setNoPokemon(true);
-                                setPokemon([]);
+                            .then((res) => {
+                                if (!res.ok) {
+                                    return null;
+                                }
+                                return res.json();
+                            })
+                            .catch((error) => {
+                                console.error(`Failed to fetch ${entry.pokemon_species.name}:`, error);
+                                return null;
                             })
                     )
                 )
                 .then((pokemonDetails) => {
-                    let filteredPokemon = pokemonDetails;
-
-                // Promise.all(data.results.map((poke) => fetch(poke.url).then((res) => res.json())))
-                //     .then((pokemonDetails) => {
-                //         let filteredPokemon = pokemonDetails;
+                    let filteredPokemon = pokemonDetails.filter(result => result !== null);
 
                         if (typeId !== 0) {
                             filteredPokemon = filteredPokemon.filter((p) =>
@@ -221,7 +222,6 @@ export default function Pokemon() {
         GetData();
         getTypes();
     }, [pokedexName])
-    console.log(pokedexName);
 
     // Load Pokémon data on mount
     useEffect(() => {
