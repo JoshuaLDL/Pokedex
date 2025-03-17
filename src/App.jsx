@@ -1,58 +1,39 @@
 
-import { BrowserRouter, Link, Route, Router, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import FullEntry from "./Components/FullEntry";
 import HomePage from "./Pages/HomePage";
 import Pokedexes from "./Pages/Pokedexes.jsx";
+import KantoPokedex from "./Pages/KantoPokedex.jsx";
+import Pokemon from "./Components/Pokedex/index.jsx";
+import JohtoPokedex from "./Pages/Johtopokedex.jsx";
 
 export default function App() {
   
   return (
-    <BrowserRouter>
+    <Router>
       
-      {/* <nav>
-        <Link className="menuLinks" to="/home">Home</Link>
+      <nav>
+        <Link className="menuLinks" to="/">Home</Link>
         <Link to="/pokedexes">Pokedexes</Link>
-      </nav> */}
+        
+        <Link to="/pokedex/kanto">Kanto</Link>
+        <Link to="/pokedex/johto">Johto</Link>
+        <Link to="/pokedex/hoenn">Hoenn</Link>
+        <Link to="/pokedex/sinnoh">Sinnoh</Link>
+        <Link to="/pokedex/unova">Unova</Link>
+      </nav>
 
 
       <Routes>
 
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/pokedexes" elements={<Pokedexes/>} />
-        <Route path="/pokemon/:id" element={<FullEntry/>} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/pokedexes" element={<Pokedexes />} />
+        <Route path="/pokedex/:pokedexName" element={<Pokemon />} />
+        <Route path="/pokemon/:id" element={<FullEntry />} />
+
+        {/* <Route path="/pokedex/johto" element={<JohtoPokedex />} /> */}
 
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
-
-
-
-// export default function App() {
-// 	return (
-
-//     <BrowserRouter>
-//         <nav>
-//             <Link className="logo" to="/"><img src="Assets/SiteLogo2.png" alt="Logo for portfolio site" width="auto" height="50"/></Link>
-//             <div className="menu">
-//                 <Link className="menuLinks" to="/about">ABOUT</Link>
-//                 <Link className="menuLinks" to="/portfolio">PORTFOLIO</Link>
-//                 <Link className="menuLinks" to="/blog">BLOG</Link>
-//             </div>
-//         </nav>
-
-//       <Routes>
-//         <Route path="/" element={<Homepage />} />
-//         <Route path="/about" element={<AboutPage />} />
-//         <Route path="/portfolio" element={<Portfolio />} />
-//         <Route path="/ResearchProjectOne" element={<ResearchProjectOne />} />
-//         {/* <Route path="/books/:id" element={<BookDetailPage/>} /> */}
-//       </Routes>
-
-//       <Footer />
-    
-  
-//     </BrowserRouter>
-
-//     )
-// }

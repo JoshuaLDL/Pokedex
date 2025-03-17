@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./SingleEntry.css"
 import Button from "../Button";
 import FullEntry from "../FullEntry";
+import { Link } from "react-router-dom";
 
 // export default function PokemonCard({ name, sprites={}, id, height, weight, abilities=[], types=[], moves=[], stats=[], text, link }) {
 //     const [isFlipped, setIsFlipped] = useState(false);

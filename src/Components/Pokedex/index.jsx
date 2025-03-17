@@ -129,10 +129,12 @@
 import { useState, useEffect } from "react";
 import "./Pokedex.css";
 import PokemonCard from "../SingleEntry";
+import { useParams } from "react-router-dom";
 
 export default function Pokemon() {
 
     const [pokemon, setPokemon] = useState([]);
+    const {pokedexName} = useParams();
     const [search, setSearch] = useState("");
     const [type, setType] = useState([]);
     const [noPokemon, setNoPokemon] = useState(false);
@@ -141,22 +143,59 @@ export default function Pokemon() {
         JSON.parse(localStorage.getItem("favorites")) || []
     );
 
-    function GetData(typeId = 0) {
-        let url = `https://pokeapi.co/api/v2/pokemon?limit=100`;
+    const pokedexLimits = {
+        kanto: 151,
+        johto: 100,
+        hoenn: 135,
+        sinnoh: 107,
+        unova: 156,
+        kalos: 72,
+    };
 
+    const pokedexURLs = {
+        kanto: "https://pokeapi.co/api/v2/pokedex/2/",
+        johto: "https://pokeapi.co/api/v2/pokedex/3/",
+        hoenn: "https://pokeapi.co/api/v2/pokedex/4/",
+        sinnoh: "https://pokeapi.co/api/v2/pokedex/5/",
+        unova: "https://pokeapi.co/api/v2/pokedex/8/",
+        kalos: "https://pokeapi.co/api/v2/pokedex/12/",
+    };
+
+
+    function GetData(typeId = 0) {
+        let url = pokedexURLs[pokedexName];
+
+        if (!url) {
+            setNoPokemon(true);
+            setPokemon([]);
+            return;
+        }
+    
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
-                // console.log(data)
-                if (!data.results) {
+                if (!data.pokemon_entries) {
                     setNoPokemon(true);
                     setPokemon([]);
                     return;
                 }
 
-                Promise.all(data.results.map((poke) => fetch(poke.url).then((res) => res.json())))
-                    .then((pokemonDetails) => {
-                        let filteredPokemon = pokemonDetails;
+                Promise.all(
+                    data.pokemon_entries.map((entry) =>
+                        fetch(`https://pokeapi.co/api/v2/pokemon/${entry.pokemon_species.name}`)
+                            .then((res) => res.json())
+                            .catch(() => {
+                                setNoPokemon(true);
+                                setPokemon([]);
+                            })
+                    )
+                )
+                .then((pokemonDetails) => {
+                    let filteredPokemon = pokemonDetails;
+
+                // Promise.all(data.results.map((poke) => fetch(poke.url).then((res) => res.json())))
+                //     .then((pokemonDetails) => {
+                //         let filteredPokemon = pokemonDetails;
 
                         if (typeId !== 0) {
                             filteredPokemon = filteredPokemon.filter((p) =>
@@ -168,10 +207,6 @@ export default function Pokemon() {
                         setNoPokemon(filteredPokemon.length === 0);
                     });
             })
-            .catch(() => {
-                setNoPokemon(true);
-                setPokemon([]);
-            });
     }
 
     function getTypes() {
@@ -181,6 +216,12 @@ export default function Pokemon() {
                 setType(data.results);
             });
     }
+
+    useEffect(() => {
+        GetData();
+        getTypes();
+    }, [pokedexName])
+    console.log(pokedexName);
 
     // Load Pokémon data on mount
     useEffect(() => {

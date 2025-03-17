@@ -1,0 +1,7 @@
+.pokedexesContainer{
+    display: grid;
+    grid-template-rows: 1fr;
+    background-color: black;
+    color: white;
+
+}
