@@ -1,21 +1,22 @@
 .pokedexesContainer{
     display: grid;
-    grid-template-rows: 1fr;
+    /* grid-template-rows: 1fr; */
     background-color: black;
     color: white;
     border: 2px solid white;
     border-radius: 10px;
     text-decoration: none;
     padding: 10px;
+    margin: 20px;
     justify-content: center;
-    width: 100%;
 
 
 }
 
 .PokedexesGrid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column: 2;
+    width: 100%;
+    height: auto;
+    gap: 10px;
+    
 
 }

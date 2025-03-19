@@ -18,11 +18,11 @@ export default function PokemonCard({
                 
                 {/* Front Side */}
                 <div className="card-front">
-                    <Link className="pokemonCardLink" to={`/pokemon/${id}`}>
+                    <Link className="pokemonCardLink" to={`/pokemon/${name}`}>
                         <img src={sprites.front_default} alt={name} />
+                        </Link>
                         <p>#{id}</p>
                         <h4>{name}</h4>
-                    </Link>
                     <i
                        className="fa-solid fa-heart" 
                             style={{ 
@@ -39,11 +39,9 @@ export default function PokemonCard({
 
                 {/* Back Side */}
                 <div className="card-back">
+                    <img src={sprites.back_default} alt={name} />
                     <p><strong>Type(s):</strong> {types.map(a => a.type.name).join(", ")}</p>
                     <p><strong>Abilities:</strong> {abilities.map(a => a.ability.name).join(", ")}</p>
-                    <p><strong>Height:</strong> {height}</p>
-                    <p><strong>Weight:</strong> {weight}</p>
-                    
                 </div>
             </div>
         </div>

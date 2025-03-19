@@ -29,8 +29,8 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/pokedexes" element={<Pokedexes />} />
         <Route path="/pokedex/:pokedexName" element={<Pokemon />} />
-        <Route path="/pokedex/:pokedexname" element={<PokedexHeader/>} />
-        <Route path="/pokemon/:id" element={<FullEntry />} />
+        <Route path="/pokedex/:pokedexName" element={<PokedexHeader/>} />
+        <Route path="/pokemon/:name" element={<FullEntry />} />
 
       </Routes>
     </Router>
