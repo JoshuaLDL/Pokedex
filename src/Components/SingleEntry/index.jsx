@@ -16,13 +16,12 @@ export default function PokemonCard({
         <div className="card-container" onClick={() => setIsFlipped(!isFlipped)}>
             <div className={`card ${isFlipped ? "flipped" : ""}`}>
                 
-                {/* Front Side */}
                 <div className="card-front">
-                    <Link className="pokemonCardLink" to={`/pokemon/${name}`}>
                         <img src={sprites.front_default} alt={name} />
-                        </Link>
                         <p>#{id}</p>
-                        <h4>{name}</h4>
+                        <Link className="pokemonCardLink" to={`/pokemon/${name}`} state={{ previousPathname: location.pathname }}>
+                            {name}
+                        </Link>
                     <i
                        className="fa-solid fa-heart" 
                             style={{ 

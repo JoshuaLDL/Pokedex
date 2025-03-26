@@ -9,7 +9,8 @@ export default function ({text, link}) {
             <img src="src/assets/pokeball.png" alt="Pokeball sprite" width="50" height="50" />
             </a>
             <div className="Nav-Bar">
-                <Link to="/pokedexes">Pokedexes</Link>
+                <Link className="HeaderLink" to="/pokedexes">Pokedexes</Link>
+                <Link className="HeaderLink" to="/pokedexes">Favourites</Link>
             </div>
         </div>
     )

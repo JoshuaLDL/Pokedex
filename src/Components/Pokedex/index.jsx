@@ -126,15 +126,15 @@ export default function Pokemon() {
         <div className="pokedex">
             <div className="filterBar">
                 <div className="filterContent">
-                <label htmlFor="type">Filter by Type:  </label>
-                <select className="filter" onChange={(e) => setTypeId(parseInt(e.target.value))}>
-                    <option value={0}>Any</option>
-                    {type.map((t) => (
-                        <option key={t.name} value={t.url.split("/").slice(-2, -1)[0]}>
-                            {t.name}
-                        </option>
-                    ))}
-                </select>
+                    <label htmlFor="type">Filter by Type:  </label>
+                    <select className="filter" onChange={(e) => setTypeId(parseInt(e.target.value))}>
+                        <option value={0}>Any</option>
+                        {type.map((t) => (
+                            <option key={t.name} value={t.url.split("/").slice(-2, -1)[0]}>
+                                {t.name}
+                            </option>
+                        ))}
+                    </select>
                 </div>
             </div>
 

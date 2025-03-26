@@ -4,6 +4,7 @@
     grid-template-columns: 1fr;
     background-color: black;
     color: white;
+    font-family: "Montserrat", serif;
 }
 
 .pokemonDeck{

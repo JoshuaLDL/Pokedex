@@ -1,4 +1,64 @@
+.FullEntryPage{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    font-family: "Montserrat", serif;
+    text-transform: capitalize;
+}
+
+.AllContent{
+    grid-column: 2;
+    gap: 10px;
+}
+
+
 .FullEntry {
+    display: grid;
+    grid-column: 2;
     color: white;
-    background-color: red;
+    /* background-color: red; */
+    padding: 20px;
+    border-style: solid;
+    border-width: 4px ;
+    border-radius: 8px;
+}
+
+.FullEntrySprites{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-width: 8px ;
+    border-radius: 8px;
+    border: white;
+    gap: 10px;
+}
+
+@media screen and (max-width: 850px) { 
+    .FullEntrySprites{
+        display: grid;
+        grid-template-columns: 1fr;
+}
+}
+
+.FullEntrySprite{
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-width: 4px ;
+    border-radius: 8px;
+    justify-content: center;
+    background-color: white;
+
+}
+
+.PokedexData{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+@media screen and (max-width: 850px) {
+    .PokedexData{
+        display: grid;
+        grid-template-columns: 1fr;
+    
+    }
 }
