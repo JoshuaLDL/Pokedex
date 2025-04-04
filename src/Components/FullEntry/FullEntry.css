@@ -62,3 +62,10 @@
     
     }
 }
+
+.BackButton{
+    color: white;
+    text-decoration: none;
+    gap: 5px;
+
+}

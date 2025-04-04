@@ -22,10 +22,6 @@ useEffect(() => {
   }, [name]);
 
 
-//   const handleBack = () => {
-//     navigate(-1); // Go back one entry in history
-//   };
-
     if (!pokemon) {
         return (
         <div className="FullEntry">
@@ -37,7 +33,7 @@ useEffect(() => {
   return (
         <div className="FullEntryPage">
             <div className="AllContent">
-            <Link to={previousPathname}>Back</Link>
+            <Link className="BackButton" to={previousPathname}>Back</Link>
                 <div className="FullEntry">
                     <h1>#{pokemon.id} {pokemon.name}</h1>
                     <div className="FullEntrySprites">

@@ -4,20 +4,42 @@ body{
 
 .pokedexesPage{
     display: grid;
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     padding: 20px;
-    /* justify-content: center; */
 }
 
-/* @media screen and (max-width: 1100px) {
+@media screen and (max-width: 800px) {
     .pokedexesPage{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }}
 
-    @media screen and (max-width: 755px) {
-        .pokedexesPage{
-            display: grid;
-            grid-template-columns: 1fr;
-        }} */
+.homeContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    overflow: hidden;
+    word-wrap:normal;
+
+    border: white;
+    border-radius: 8px;
+    border-style: solid;
+    box-sizing: border-box;
+
+    padding: 20px;
+    margin: 20px;
+}
+
+@media screen and (max-width: 750px) {
+    .homeContainer{
+        grid-template-columns: 1fr;
+    }}
+
+.homeText{
+    color: white;
+    font-family: "Montserrat", serif;
+
+
+}

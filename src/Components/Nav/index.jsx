@@ -6,11 +6,11 @@ export default function ({text, link}) {
     return (
         <div className="Header">
             <a href="/" >
-            <img src="src/assets/pokeball.png" alt="Pokeball sprite" width="50" height="50" />
+            <img src="assets/pokeball.png" alt="Pokeball sprite" width="50" height="50" />
             </a>
             <div className="Nav-Bar">
                 <Link className="HeaderLink" to="/pokedexes">Pokedexes</Link>
-                <Link className="HeaderLink" to="/pokedexes">Favourites</Link>
+                <Link className="HeaderLink" to="/favourites">Favourites</Link>
             </div>
         </div>
     )

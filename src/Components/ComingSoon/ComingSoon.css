@@ -1,0 +1,15 @@
+.ComingSoonPage{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    color: white;
+}
+
+.ComingSoonText{
+    grid-column: 2;
+    color: white;
+    font-family: "Montserrat", serif;
+    justify-items: center;
+    text-align: center;
+    
+
+}

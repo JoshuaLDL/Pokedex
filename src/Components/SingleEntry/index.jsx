@@ -18,10 +18,12 @@ export default function PokemonCard({
                 
                 <div className="card-front">
                         <img src={sprites.front_default} alt={name} />
-                        <p>#{id}</p>
-                        <Link className="pokemonCardLink" to={`/pokemon/${name}`} state={{ previousPathname: location.pathname }}>
-                            {name}
-                        </Link>
+                        <div> 
+                            <p>#{id}</p>
+                            <Link className="pokemonCardLink" to={`/pokemon/${name}`} state={{ previousPathname: location.pathname }}>
+                                <h3>{name}</h3>
+                            </Link>
+                        </div>
                     <i
                        className="fa-solid fa-heart" 
                             style={{ 
